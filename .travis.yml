@@ -1,0 +1,11 @@
+language: node_js
+node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: Cu7+URUMDyHxe2+y5SpB5eGojP4Y8MUVYeteagH7KZ55kTLhWy+Qz56L9TMzwMQw8kP31GZ7vXkLOoBvB2w+5+fHAa1lyveSZi79sUvdvKmuLEyLnZXw4QlFsVSoDVVgj1nFtvY+z4EzZs7Giog8VWzkLey4eHs9L4X95zQsrj7oljTJS/IKRxkUpmL9pp8cac4QcSVHf9vzK9E8wK8QRzLwmDrUFMGJq/xrokhoc/+nTV7se9q5DaV/YjKLSJmT8srh1KOe6W4jhCOEsO3bwVvbsOafZHUqSkdkLshnn570gsdaHc9oJIuCpVthA9tfWI/hKcE5tm5TDkcKJzEllaZ2UHp91+9EHfboRO+UGY7b7fOP9Y+HOA3FwxM/YBlvRLxaJMKhfiPMjr1WBBrlPmaV6r1MT+GYjRIcEOK2UEz4XJwIGiqXBYlLJU/QJlgam8UFBlAGQaHctT5qdTUUlZHF3TkBwFi3NR0iOBqk4wvLCEoix9t2DWa75PnIHQRPfBo+StUnBD7SU5uIzfgf7GFbN3pQ9B3eEYZ2FI/57xJJwsPD95NMMaCZVgwt+YUoVQukAT3pNt0nCOjcRX0TSKaEkUDnDbL8WEIbIT1A26KaUzhrTKPMRwty9vWr641PS1WvHSNpt38j3SB+RGgShXcQj9I9JTZnVAr5nc10RJU=
+  app: smite-randomizer-api
+  on:
+    repo: lbox87/smite-randomizer-api
