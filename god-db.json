@@ -1,0 +1,101 @@
+                {"class": "Assassin", "name": "Arachne", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Awilix", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Bakasura", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Bastet", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Camazotz", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Da Ji", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Fenrir", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Hun Batz", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Kali", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Loki", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Mercury", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Ne Zha", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Nemesis", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Pele", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Ratatoskr", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Ravana", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Serqet", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Susano", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Thanatos", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Thor", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Ares", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Artio", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Athena", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Bacchus", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Cabrakan", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Cerberus", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Fafnir", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Ganesha", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Geb", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Jormungandr", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Khepri", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Kumbhakarna", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Kuzenbo", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Sobek", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Sylvanus", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Terra", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Xing Tian", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Ymir", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Ah Muzen Cab", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Anhur", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Apollo", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Artemis", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Cernunnos", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Chernobog", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Chiron", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Cupid", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Hachiman", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Hou Yi", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Izanami", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Jing Wei", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Medusa", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Neith", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Rama", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Skadi", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Ullr", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Xbalanque", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Agni", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Ah Puch", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Anubis", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Ao Kuang", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Aphrodite", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Baron Samedi", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Chang'e", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Chronos", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Discordia", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Freya", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Hades", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "He Bo", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Hel", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Hera", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Isis", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Janus", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Kulkulkan", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Merlin", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Nox", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Nu Wa", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Poseidon", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Ra", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Raijin", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Scylla", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Sol", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "The Morrigan", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Thoth", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Vulcan", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Zeus", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Zhong Kui", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Achilles", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Amaterasu", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Bellona", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Chaac", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Cu Chulainn", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Erlang Shen", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Guan Yu", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Hercules", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "King Arthur", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Nike", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Odin", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Osiris", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Sun Wukong", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Tyr", "items-available": [], "image": "fill"}
+                {"class": "Warrior", "name": "Vamana", "items-available": [], "image": "fill"}
