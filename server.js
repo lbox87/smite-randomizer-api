@@ -4,11 +4,12 @@ app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
 
-const cors = require('cors');
-
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL } = require('./config');
+const { Build } = require('./models');
+
+const cors = require('cors');
 
 app.use(
     cors({
