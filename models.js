@@ -5,23 +5,23 @@ const { PORT, DATABASE_URL } = require('./config');
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
 require('dotenv').config();
 
-const savedBuildSchema = mongoose.Schema({
-  filler: { type: String, required: true },
-  filler2: { type: String, required: true },
-  filler3: { type: String, required: true },
-  filler4: { type: Number, required: true },
+const godSchema = mongoose.Schema({
+  class: { type: String, required: true },
+  name: { type: String, required: true },
+//   itemsAvailable: { type: String, required: true },
+//   image: { type: String, required: true },
 });
 
-savedBuildSchema.methods.serialize = function () {
+godSchema.methods.serialize = function () {
   return {
     id: this._id,
-    filler: this.filler,
-    filler2: this.filler2,
-    filler3: this.filler3,
-    filler4: this.filler4,
+    class: this.class,
+    name: this.name,
+    // itemsAvailable: this.itemsAvailable,
+    // image: this.image,
   };
 };
 
-const Build = mongoose.model('Build', savedBuildSchema);
+const God = mongoose.model('God', godSchema);
 
-module.exports = { Build };
+module.exports = { God };

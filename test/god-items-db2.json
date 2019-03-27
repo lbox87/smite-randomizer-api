@@ -19,7 +19,7 @@
                 {"class": "Assassin", "name": "Serqet", "items-available": [], "image": "fill"},
                 {"class": "Assassin", "name": "Susano", "items-available": [], "image": "fill"},
                 {"class": "Assassin", "name": "Thanatos", "items-available": [], "image": "fill"},
-                {"class": "Assassin", "name": "Thor", "items-available": [], "image": "fill"}
+                {"class": "Assassin", "name": "Thor", "items-available": [], "image": "fill"},
                 {"class": "Guardian", "name": "Ares", "items-available": [], "image": "fill"},
                 {"class": "Guardian", "name": "Artio", "items-available": [], "image": "fill"},
                 {"class": "Guardian", "name": "Athena", "items-available": [], "image": "fill"},
@@ -37,7 +37,7 @@
                 {"class": "Guardian", "name": "Sylvanus", "items-available": [], "image": "fill"},
                 {"class": "Guardian", "name": "Terra", "items-available": [], "image": "fill"},
                 {"class": "Guardian", "name": "Xing Tian", "items-available": [], "image": "fill"},
-                {"class": "Guardian", "name": "Ymir", "items-available": [], "image": "fill"}
+                {"class": "Guardian", "name": "Ymir", "items-available": [], "image": "fill"},
                 {"class": "Hunter", "name": "Ah Muzen Cab", "items-available": [], "image": "fill"},
                 {"class": "Hunter", "name": "Anhur", "items-available": [], "image": "fill"},
                 {"class": "Hunter", "name": "Apollo", "items-available": [], "image": "fill"},
@@ -55,7 +55,7 @@
                 {"class": "Hunter", "name": "Rama", "items-available": [], "image": "fill"},
                 {"class": "Hunter", "name": "Skadi", "items-available": [], "image": "fill"},
                 {"class": "Hunter", "name": "Ullr", "items-available": [], "image": "fill"},
-                {"class": "Hunter", "name": "Xbalanque", "items-available": [], "image": "fill"}
+                {"class": "Hunter", "name": "Xbalanque", "items-available": [], "image": "fill"},
                 {"class": "Mage", "name": "Agni", "items-available": [], "image": "fill"},
                 {"class": "Mage", "name": "Ah Puch", "items-available": [], "image": "fill"},
                 {"class": "Mage", "name": "Anubis", "items-available": [], "image": "fill"},
@@ -85,7 +85,7 @@
                 {"class": "Mage", "name": "Thoth", "items-available": [], "image": "fill"},
                 {"class": "Mage", "name": "Vulcan", "items-available": [], "image": "fill"},
                 {"class": "Mage", "name": "Zeus", "items-available": [], "image": "fill"},
-                {"class": "Mage", "name": "Zhong Kui", "items-available": [], "image": "fill"}
+                {"class": "Mage", "name": "Zhong Kui", "items-available": [], "image": "fill"},
                 {"class": "Warrior", "name": "Achilles", "items-available": [], "image": "fill"},
                 {"class": "Warrior", "name": "Amaterasu", "items-available": [], "image": "fill"},
                 {"class": "Warrior", "name": "Bellona", "items-available": [], "image": "fill"},
