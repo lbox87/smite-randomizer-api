@@ -16,7 +16,7 @@ describe('Test Get God Router', function() {
     return closeServer();
   });
   
-  it('should have status 200 on root load', function() {
+  it('should have status 200', function() {
     return chai.request(app)
       .get('/gods')
       .then(function(res) {
@@ -24,20 +24,12 @@ describe('Test Get God Router', function() {
       });
   });
 
-//   it('should have status 200 to load all', function() {
-//     return chai.request(app)
-//       .get('/characters')
-//       .then(function(res) {
-//         expect(res).to.have.status(200);
-//       });
-//   });
-
-//   it('should have status 200 to load 10', function() {
-//     return chai.request(app)
-//       .get('/summary')
-//       .then(function(res) {
-//         expect(res).to.have.status(200);
-//       });
-//   });
+  it('should have status 200 for random', function() {
+    return chai.request(app)
+      .get('/random')
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
 
 });

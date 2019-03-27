@@ -21,7 +21,7 @@ app.get('/api/*', (req, res) => {
     res.json({ok: true});
   });
 
-  app.get('/gods', (req, res) => {
+app.get('/gods', (req, res) => {
     God
       .find()
       .then(gods => {
@@ -30,6 +30,16 @@ app.get('/api/*', (req, res) => {
             (god) => god.serialize())
         });
       })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+      });
+  });
+
+  app.get('/random', (req, res) => {
+    God
+      .aggregate([{$sample: {size:1}}])
+      .then(res.json(god => god.serialize()))
       .catch(err => {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });
