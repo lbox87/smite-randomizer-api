@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const { PORT, DATABASE_URL } = require('./config');
+const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { Build } = require('./models');
 
 const cors = require('cors');
@@ -17,9 +17,9 @@ app.use(
     })
 );
 
-app.get('/test', (req, res) => {
-    res.json({ ok: true });
-});
+app.get('/api/*', (req, res) => {
+    res.json({ok: true});
+  });
 
 let server;
 

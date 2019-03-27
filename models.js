@@ -12,7 +12,7 @@ const savedBuildSchema = mongoose.Schema({
   filler4: { type: Number, required: true },
 });
 
-characterSchema.methods.serialize = function () {
+savedBuildSchema.methods.serialize = function () {
   return {
     id: this._id,
     filler: this.filler,
