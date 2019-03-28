@@ -7,7 +7,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
-const { God } = require('./models');
+const { God } = require('./god-model');
+const { Item } = require('./item-model');
 
 const cors = require('cors');
 
@@ -28,6 +29,21 @@ app.get('/gods', (req, res) => {
         res.json({
             gods: gods.map(
             (god) => god.serialize())
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+      });
+  });
+
+  app.get('/items', (req, res) => {
+    Item
+      .find()
+      .then(items => {
+        res.json({
+            items: items.map(
+            (item) => item.serialize())
         });
       })
       .catch(err => {
