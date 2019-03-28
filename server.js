@@ -3,6 +3,8 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
+// var bodyParser = require('body-parser');
+// app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -11,6 +13,7 @@ const { God } = require('./god-model');
 const { Item } = require('./item-model');
 
 const cors = require('cors');
+const rando = "Math.floor(Math.random() * Math.floor(gods.length-1))"
 
 app.use(
     cors({
@@ -54,8 +57,19 @@ app.get('/gods', (req, res) => {
 
   app.get('/random', (req, res) => {
     God
-      .aggregate([{$sample: {size:1}}])
-      .then(res.json(god => god.serialize()))
+    //   .aggregate([{$sample: {size:1}}])
+    .find()
+    //   .then( gods => {
+        //   console.log(gods[Math.floor(Math.random() * Math.floor(gods.length-1))])
+        //   console.log(res.body)
+        //   res.json(god => god.serialize())
+        // res.json({this: true})
+        // })
+        .then(gods => {
+            res.json({
+                gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
+            });
+          })
       .catch(err => {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });

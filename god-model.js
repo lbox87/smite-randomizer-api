@@ -3,6 +3,8 @@
 const mongoose = require('mongoose');
 const { PORT, DATABASE_URL } = require('./config');
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
+// var bodyParser = require('body-parser');
+// app.use(bodyParser.json());
 require('dotenv').config();
 
 const godSchema = mongoose.Schema({
