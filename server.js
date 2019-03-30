@@ -15,8 +15,7 @@ const { Item } = require('./item-model');
 const cors = require('cors');
 const rando = "Math.floor(Math.random() * Math.floor(gods.length-1))"
 
-app.use(
-    cors({
+app.use(cors({
         origin: CLIENT_ORIGIN
     })
 );
