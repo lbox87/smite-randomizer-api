@@ -24,21 +24,6 @@ app.get('/api/*', (req, res) => {
     res.json({ok: true});
   });
 
-app.get('/gods', (req, res) => {
-    God
-      .find()
-      .then(gods => {
-        res.json({
-            gods: gods.map(
-            (god) => god.serialize())
-        });
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error' });
-      });
-  });
-
   app.get('/items', (req, res) => {
     Item
       .find()
@@ -69,6 +54,20 @@ app.get('/gods', (req, res) => {
                 gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
             });
           })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+      });
+  });
+
+  app.get('/gods', (req, res) => {
+    God
+      .find({class: 'Warrior'})
+      .then(gods => {
+        res.json({
+            gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
+        });
+      })
       .catch(err => {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });
