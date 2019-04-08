@@ -27,10 +27,14 @@ app.get('/api/*', (req, res) => {
   app.get('/items', (req, res) => {
     Item
       .find()
+      // .then(items => {
+      //   res.json({
+      //       items: items.map((item) => item.serialize())
+      //   });
+      // })
       .then(items => {
         res.json({
-            items: items.map(
-            (item) => item.serialize())
+          items: items[Math.floor(Math.random() * Math.floor(items.length-1))]
         });
       })
       .catch(err => {
@@ -50,6 +54,7 @@ app.get('/api/*', (req, res) => {
         // res.json({this: true})
         // })
         .then(gods => {
+            
             res.json({
                 gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
             });
@@ -65,7 +70,8 @@ app.get('/api/*', (req, res) => {
       .find({class: 'Warrior'})
       .then(gods => {
         res.json({
-            gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
+            // gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
+            gods:gods
         });
       })
       .catch(err => {
