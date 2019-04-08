@@ -43,6 +43,22 @@ app.get('/api/*', (req, res) => {
       });
   });
 
+  app.get('/random2', (req, res) => {
+  God.count().exec(function (err, count) {
+    var random = Math.floor(Math.random() * count)
+    God.findOne().skip(random)
+        .then(god => {
+            res.json({
+              god: god.serialize()
+            });
+          })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+      });
+  });
+})
+
   app.get('/random', (req, res) => {
     God
     //   .aggregate([{$sample: {size:1}}])
