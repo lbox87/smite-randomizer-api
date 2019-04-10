@@ -60,34 +60,39 @@ app.get('/api/*', (req, res) => {
   });
 })
 
-// app.post('/random3', (req,res) => {
-//   let classes = [];
-//   for (var key in req.body) {
-//     if (req.body[key] === true) {
-//       classes.push(key).toString()
-//     }
-//   }
-//   function(gods){
-//     for (let i = 0; i < classes.length; i++) {
-//       if 
-//     }
-//   }
-//   God.find()
-//   .then( gods => {
-//     for ()
-//   })
-// });
+app.post('/random3', (req,res) => {
+  let classes = [];
+  for (var key in req.body) {
+    if (req.body[key] === true) {
+      classes.push(key).toString()
+    }
+  }
+  console.log(classes);
+  // function(gods){
+  //   for (let i = 0; i < classes.length; i++) {
+  //     if 
+  //   }
+  // }
+  God    
+  .find({class: {$in: classes}})
+  .then(gods => {
+      
+      res.json({
+          gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
+      });
+    })
+.catch(err => {
+  console.error(err);
+  res.status(500).json({ message: 'Internal server error' });
+});
+  // .then( gods => {
+  //   for ()
+  // })
+});
 
   app.get('/random', (req, res) => {
     God
-    //   .aggregate([{$sample: {size:1}}])
     .find()
-    //   .then( gods => {
-        //   console.log(gods[Math.floor(Math.random() * Math.floor(gods.length-1))])
-        //   console.log(res.body)
-        //   res.json(god => god.serialize())
-        // res.json({this: true})
-        // })
         .then(gods => {
             
             res.json({
