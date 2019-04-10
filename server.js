@@ -43,6 +43,7 @@ app.get('/api/*', (req, res) => {
       });
   });
 
+  // POST for filters
   app.get('/random2', (req, res) => {
   God.count().exec(function (err, count) {
     var random = Math.floor(Math.random() * count)
@@ -58,6 +59,24 @@ app.get('/api/*', (req, res) => {
       });
   });
 })
+
+// app.post('/random3', (req,res) => {
+//   let classes = [];
+//   for (var key in req.body) {
+//     if (req.body[key] === true) {
+//       classes.push(key).toString()
+//     }
+//   }
+//   function(gods){
+//     for (let i = 0; i < classes.length; i++) {
+//       if 
+//     }
+//   }
+//   God.find()
+//   .then( gods => {
+//     for ()
+//   })
+// });
 
   app.get('/random', (req, res) => {
     God
