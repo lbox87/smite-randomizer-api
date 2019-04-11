@@ -60,6 +60,42 @@ app.get('/api/*', (req, res) => {
   });
 })
 
+app.post('/items2', (req, res) => {
+  let itemFilters = [];
+  console.log(req.body.god)
+  if (req.body.god === "Ratatoskr") {
+    itemFilters.push("physicalAll", "physicalBoots", "all", "allMageHunterAssassin", "physicalMelee", "physicalRatatoskr")
+  }
+  else if (req.body.class === "Assassin") {
+    itemFilters.push("physicalAll", "physicalBoots", "all", "allMageHunterAssassin", "physicalMelee")
+  }
+  else if (req.body.class === "Guardian") {
+    itemFilters.push("magicalAll", "magicalBoots", "all", "allWarriorGuardian")
+  }
+  else if (req.body.class === "Hunter") {
+    itemFilters.push("physicalAll", "physicalBoots", "all", "allMageHunterAssassin")
+  }
+  else if (req.body.class === "Mage") {
+    itemFilters.push("magicalAll", "magicalBoots", "all", "allMageHunterAssassin")
+  }
+  else {
+    // warriors
+    itemFilters.push("physicalAll", "physicalBoots", "all", "allWarriorGuardian", "physicalMelee")
+  }
+  console.log("the curent item filters are " + itemFilters)
+  Item
+    .find({classification: {$in: itemFilters}})
+    .then(items => {
+      res.json({
+        items: items[Math.floor(Math.random() * Math.floor(items.length-1))]
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ message: 'Internal server error' });
+    });
+});
+
 app.post('/random3', (req,res) => {
   let classes = [];
   for (var key in req.body) {
@@ -68,11 +104,6 @@ app.post('/random3', (req,res) => {
     }
   }
   console.log(classes);
-  // function(gods){
-  //   for (let i = 0; i < classes.length; i++) {
-  //     if 
-  //   }
-  // }
   God    
   .find({class: {$in: classes}})
   .then(gods => {
@@ -84,10 +115,7 @@ app.post('/random3', (req,res) => {
 .catch(err => {
   console.error(err);
   res.status(500).json({ message: 'Internal server error' });
-});
-  // .then( gods => {
-  //   for ()
-  // })
+  });
 });
 
   app.get('/random', (req, res) => {
