@@ -90,7 +90,8 @@ app.post('/items2', (req, res) => {
       let nonBoots = [];
       for (let i = 0; i < items.length; i++) {
         if (items[i].classification === "physicalRatatoskr"){
-        boots.push(items[i])
+        boots.push(items[i]);
+        
         }
         else if ((items[i].classification === "physicalBoots") || (items[i].classification === "magicalBoots")){
         boots.push(items[i])
@@ -105,13 +106,14 @@ app.post('/items2', (req, res) => {
         item5: {},
         item6: {}
       }
+      console.log(boots)
       for (var key in build){
         if ( key === "item1") {
-          build[key] = boots[Math.floor(Math.random() * Math.floor(boots.length-1))];
+          build[key] = boots[Math.floor(Math.random() * boots.length)];
           // console.log(key + " is " + build[key])
         }
         else {
-          build[key] = nonBoots[Math.floor(Math.random() * Math.floor(nonBoots.length-1))];
+          build[key] = nonBoots[Math.floor(Math.random() * nonBoots.length)];
           for (let i = 0; i < nonBoots.length; i++) {
             if( nonBoots[i] === build[key] ) {
               // console.log(nonBoots[i] + " was removed")
