@@ -87,7 +87,12 @@ app.post('/items2', (req, res) => {
     .find({classification: {$in: itemFilters}})
     .then(items => {
       res.json({
-        items: items[Math.floor(Math.random() * Math.floor(items.length-1))]
+        item1: items[Math.floor(Math.random() * Math.floor(items.length-1))],
+        item2: items[Math.floor(Math.random() * Math.floor(items.length-1))],
+        item3: items[Math.floor(Math.random() * Math.floor(items.length-1))],
+        item4: items[Math.floor(Math.random() * Math.floor(items.length-1))],
+        item5: items[Math.floor(Math.random() * Math.floor(items.length-1))],
+        item6: items[Math.floor(Math.random() * Math.floor(items.length-1))]
       });
     })
     .catch(err => {
