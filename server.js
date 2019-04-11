@@ -108,7 +108,7 @@ app.post('/items2', (req, res) => {
       for (var key in build){
         if ( key === "item1") {
           build[key] = boots[Math.floor(Math.random() * Math.floor(boots.length-1))];
-          console.log(key + " is " + build[key])
+          // console.log(key + " is " + build[key])
         }
         else {
           build[key] = nonBoots[Math.floor(Math.random() * Math.floor(nonBoots.length-1))];
@@ -121,7 +121,7 @@ app.post('/items2', (req, res) => {
           }
         }
       }
-      console.log(build.items1)
+      // console.log(build.item1)
       // console.log("the current build is" + build)
 
       res.json({
