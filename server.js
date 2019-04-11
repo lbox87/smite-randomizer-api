@@ -64,7 +64,7 @@ app.post('/items2', (req, res) => {
   let itemFilters = [];
   console.log(req.body.god)
   if (req.body.god === "Ratatoskr") {
-    itemFilters.push("physicalAll", "physicalBoots", "all", "allMageHunterAssassin", "physicalMelee", "physicalRatatoskr")
+    itemFilters.push("physicalAll", "all", "allMageHunterAssassin", "physicalMelee", "physicalRatatoskr")
   }
   else if (req.body.class === "Assassin") {
     itemFilters.push("physicalAll", "physicalBoots", "all", "allMageHunterAssassin", "physicalMelee")
@@ -86,13 +86,51 @@ app.post('/items2', (req, res) => {
   Item
     .find({classification: {$in: itemFilters}})
     .then(items => {
+      let boots = [];
+      let nonBoots = [];
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].classification === "physicalRatatoskr"){
+        boots.push(items[i])
+        }
+        else if ((items[i].classification === "physicalBoots") || (items[i].classification === "magicalBoots")){
+        boots.push(items[i])
+        }
+        else {nonBoots.push(items[i])}
+      }
+      let build = {
+        item1: {},
+        item2: {},
+        item3: {},
+        item4: {},
+        item5: {},
+        item6: {}
+      }
+      for (var key in build){
+        if ( key === "item1") {
+          build[key] = boots[Math.floor(Math.random() * Math.floor(boots.length-1))];
+          console.log(key + " is " + build[key])
+        }
+        else {
+          build[key] = nonBoots[Math.floor(Math.random() * Math.floor(nonBoots.length-1))];
+          for (let i = 0; i < nonBoots.length; i++) {
+            if( nonBoots[i] === build[key] ) {
+              // console.log(nonBoots[i] + " was removed")
+              nonBoots.splice(i, 1);
+              // console.log(key + " is " + build[key])
+            }
+          }
+        }
+      }
+      console.log(build.items1)
+      // console.log("the current build is" + build)
+
       res.json({
-        item1: items[Math.floor(Math.random() * Math.floor(items.length-1))],
-        item2: items[Math.floor(Math.random() * Math.floor(items.length-1))],
-        item3: items[Math.floor(Math.random() * Math.floor(items.length-1))],
-        item4: items[Math.floor(Math.random() * Math.floor(items.length-1))],
-        item5: items[Math.floor(Math.random() * Math.floor(items.length-1))],
-        item6: items[Math.floor(Math.random() * Math.floor(items.length-1))]
+        item1: build.item1,
+        item2: build.item2,
+        item3: build.item3,
+        item4: build.item4,
+        item5: build.item5,
+        item6: build.item6
       });
     })
     .catch(err => {
