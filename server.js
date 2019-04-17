@@ -4,18 +4,35 @@ app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
 
+const morgan = require('morgan');
+const passport = require('passport');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
-const { randomGod } = require('./random-god-modules');
-const { randomBuild } = require('./random-item-modules');
+const { randomGod } = require('./random-god-router');
+const { randomBuild } = require('./random-item-router');
+const { router: usersRouter } = require('./users');
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+
+app.use(morgan('common'));
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
+const jwtAuth = passport.authenticate('jwt', { session: false });
 
 const cors = require('cors');
 app.use(cors({
         origin: CLIENT_ORIGIN
     })
 );
+
+// A protected endpoint which needs a valid JWT to access it
+app.get('/api/protected', jwtAuth, (req, res) => {
+  return res.json({
+    data: 'secret'
+  });
+});
 
 app.post('/items2', randomBuild);
 app.post('/random3', randomGod);
