@@ -19,6 +19,8 @@ app.use(morgan('common'));
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
+
+
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
 const cors = require('cors');
@@ -27,13 +29,17 @@ app.use(cors({
     })
 );
 
+app.use('/users/', usersRouter);
+app.use('/auth/', authRouter);
+
 // A protected endpoint which needs a valid JWT to access it
-app.get('/api/protected', jwtAuth, (req, res) => {
+app.get('/protected', jwtAuth, (req, res) => {
   return res.json({
     data: 'secret'
   });
 });
 
+// app.post('/auth/login')
 app.post('/items2', randomBuild);
 app.post('/random3', randomGod);
 
