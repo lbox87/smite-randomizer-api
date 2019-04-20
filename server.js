@@ -12,6 +12,7 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { randomGod } = require('./random-god-router');
 const { randomBuild } = require('./random-item-router');
+const { saveBuild } = require('./saved-build-router');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
@@ -32,6 +33,7 @@ app.use(cors({
 app.use('/users/', usersRouter);
 app.use('/auth/', authRouter);
 
+
 // A protected endpoint which needs a valid JWT to access it
 app.get('/protected', jwtAuth, (req, res) => {
   return res.json({
@@ -42,6 +44,7 @@ app.get('/protected', jwtAuth, (req, res) => {
 // app.post('/auth/login')
 app.post('/items2', randomBuild);
 app.post('/random3', randomGod);
+app.post('/save', saveBuild);
 
 let server;
 
