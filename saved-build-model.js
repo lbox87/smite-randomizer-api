@@ -15,9 +15,13 @@ const savedBuildSchema = mongoose.Schema({
   item3: { type: String, required: true },
   item4: { type: String, required: true },
   item5: { type: String, required: true },
-  item6: { type: String, required: true }
-//   itemsAvailable: { type: String, required: true },
-//   image: { type: String, required: true },
+  item6: { type: String, required: true },
+  image1: { type: String, required: true },
+  image2: { type: String, required: true },
+  image3: { type: String, required: true },
+  image4: { type: String, required: true },
+  image5: { type: String, required: true },
+  image6: { type: String, required: true },
 });
 
 savedBuildSchema.methods.serialize = function () {
@@ -30,7 +34,13 @@ savedBuildSchema.methods.serialize = function () {
     item3: this.item3,
     item4: this.item4,
     item5: this.item5,
-    item6: this.item6
+    item6: this.item6,
+    image1: this.image1,
+    image2: this.image2,
+    image3: this.image3,
+    image4: this.image4,
+    image5: this.image5,
+    image6: this.image6
     // itemsAvailable: this.itemsAvailable,
     // image: this.image,
   };

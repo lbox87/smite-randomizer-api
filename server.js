@@ -15,6 +15,7 @@ const { randomBuild } = require('./random-item-router');
 const { saveBuild } = require('./saved-build-router');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+const { Build } = require('./saved-build-model');
 
 app.use(morgan('common'));
 passport.use(localStrategy);
@@ -36,10 +37,19 @@ app.use('/auth/', authRouter);
 
 // A protected endpoint which needs a valid JWT to access it
 app.get('/protected', jwtAuth, (req, res) => {
-  return res.json({
-    data: 'secret'
+    Build
+      .find()
+      .then(builds => {
+        res.json({
+          data: builds.map(
+            (builds) => builds.serialize())
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+      });
   });
-});
 
 // app.post('/auth/login')
 app.post('/items2', randomBuild);

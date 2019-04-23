@@ -21,15 +21,15 @@ app.use(cors({
 );
 
 let saveBuild = (req,res) => {
-  const requiredFields = ['user', 'god', 'item1', 'item2','item3','item4','item5','item6'];
-  for (let i = 0; i < requiredFields.length; i++) {
-    const field = requiredFields[i];
-    if (!(field in req.body)) {
-      const message = `Missing \`${field}\` in request body`;
-      console.error(message);
-      return res.status(400).send(message);
-    }
-  }
+  // const requiredFields = ['user', 'god', 'item1', 'item2','item3','item4','item5','item6'];
+  // for (let i = 0; i < requiredFields.length; i++) {
+  //   const field = requiredFields[i];
+  //   if (!(field in req.body)) {
+  //     const message = `Missing \`${field}\` in request body`;
+  //     console.error(message);
+  //     return res.status(400).send(message);
+  //   }
+  // }
   Build
     .create({
       user: req.body.user,
@@ -39,7 +39,13 @@ let saveBuild = (req,res) => {
       item3: req.body.item3,
       item4: req.body.item4,
       item5: req.body.item5,
-      item6: req.body.item6
+      item6: req.body.item6,
+      image1: req.body.image1,
+      image2: req.body.image2,
+      image3: req.body.image3,
+      image4: req.body.image4,
+      image5: req.body.image5,
+      image6: req.body.image6
     })
     .then(build => {
       res.status(201).json(build.serialize());
