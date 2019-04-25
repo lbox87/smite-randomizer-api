@@ -36,10 +36,13 @@ app.use('/auth/', authRouter);
 
 
 // A protected endpoint which needs a valid JWT to access it
-app.get('/protected', jwtAuth, (req, res) => {
+app.post('/protected', jwtAuth, (req, res) => {
+  console.log(req.body)
+  let userNow = req.body.user;
     Build
-      .find()
+      .find({user: userNow})
       .then(builds => {
+        console.log(builds)
         res.json({
           data: builds.map(
             (builds) => builds.serialize())
