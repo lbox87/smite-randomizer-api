@@ -10,6 +10,7 @@ require('dotenv').config();
 const savedBuildSchema = mongoose.Schema({
   user: { type: String, required: true },
   god: { type: String, required: true },
+  image: { type: String, required: true },
   item1: { type: String, required: true },
   item2: { type: String, required: true },
   item3: { type: String, required: true },
@@ -29,6 +30,7 @@ savedBuildSchema.methods.serialize = function () {
     id: this._id,
     user: this.user,
     god: this.god,
+    image: this.image,
     item1: this.item1,
     item2: this.item2,
     item3: this.item3,

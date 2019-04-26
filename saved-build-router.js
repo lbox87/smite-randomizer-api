@@ -34,6 +34,7 @@ let saveBuild = (req,res) => {
     .create({
       user: req.body.user,
       god: req.body.god,
+      image: req.body.image,
       item1: req.body.item1,
       item2: req.body.item2,
       item3: req.body.item3,
