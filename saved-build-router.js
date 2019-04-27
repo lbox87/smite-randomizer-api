@@ -49,9 +49,9 @@ let saveBuild = (req,res) => {
       image6: req.body.image6
     })
     .then(build => {
-      res.status(201).json(build.serialize());
-      res.json({
-        message: "Build Added"
+      // res.status(201).json(build.serialize());
+      res.status(201).json({
+        message: `Random build for ${req.body.god} has been saved to your profile.`
       })
     })
     .catch(err => {
