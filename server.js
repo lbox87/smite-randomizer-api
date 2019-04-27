@@ -54,6 +54,13 @@ app.post('/protected', jwtAuth, (req, res) => {
       });
   });
 
+  app.delete('/delete/:id', (req, res) => {
+    Build
+      .findByIdAndRemove(req.params.id)
+      .then(build => res.status(204).end())
+      .catch(err => res.status(500).json({ message: 'Internal server error' }));
+  });
+
 // app.post('/auth/login')
 app.post('/items2', randomBuild);
 app.post('/random3', randomGod);
