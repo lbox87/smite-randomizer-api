@@ -21,8 +21,6 @@ app.use(morgan('common'));
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
-
-
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
 const cors = require('cors');
@@ -34,8 +32,6 @@ app.use(cors({
 app.use('/users/', usersRouter);
 app.use('/auth/', authRouter);
 
-
-// A protected endpoint which needs a valid JWT to access it
 app.post('/protected', jwtAuth, (req, res) => {
   console.log(req.body)
   let userNow = req.body.user;
@@ -61,7 +57,6 @@ app.post('/protected', jwtAuth, (req, res) => {
       .catch(err => res.status(500).json({ message: 'Internal server error' }));
   });
 
-// app.post('/auth/login')
 app.post('/items2', randomBuild);
 app.post('/random3', randomGod);
 app.post('/save', saveBuild);
