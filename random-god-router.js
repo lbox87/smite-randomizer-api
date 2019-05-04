@@ -3,8 +3,6 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -13,7 +11,6 @@ const { God } = require('./god-model');
 const { Item } = require('./item-model');
 
 const cors = require('cors');
-const rando = "Math.floor(Math.random() * Math.floor(gods.length-1))"
 
 app.use(cors({
         origin: CLIENT_ORIGIN
