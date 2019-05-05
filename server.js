@@ -57,6 +57,21 @@ app.post('/protected', jwtAuth, (req, res) => {
       .catch(err => res.status(500).json({ message: 'Internal server error' }));
   });
 
+  app.post('/find/:id', (req, res) => {
+    console.log(req.params.id)
+    Build
+      .findOne({_id: req.params.id})
+      // .then(build => res.status(204).end())
+      .then(build => {
+        res.json({
+          build: build.serialize()
+        });
+
+      })
+
+      .catch(err => res.status(500).json({ message: 'Internal server error' }));
+  });
+
 app.post('/items2', randomBuild);
 app.post('/random3', randomGod);
 app.post('/save', saveBuild);
