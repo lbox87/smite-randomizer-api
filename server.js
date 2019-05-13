@@ -50,6 +50,24 @@ app.post('/protected', jwtAuth, (req, res) => {
       });
   });
 
+  app.post('/edit', jwtAuth, (req, res) => {
+    console.log(req.body)
+    let buildNow = req.body.build;
+      Build
+        .find({_id: buildNow})
+        .then(build => {
+          console.log(build)
+          res.json({
+            data: build.map(
+              (build) => build.serialize())
+          });
+        })
+        .catch(err => {
+          console.error(err);
+          res.status(500).json({ message: 'Internal server error' });
+        });
+    });
+
   app.delete('/delete/:id', (req, res) => {
     Build
       .findByIdAndRemove(req.params.id)
