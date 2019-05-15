@@ -12,6 +12,7 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { randomGod } = require('./random-god-router');
 const { randomBuild } = require('./random-item-router');
+const { randomItem } = require('./random-item-router2');
 const { saveBuild } = require('./saved-build-router');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
@@ -90,6 +91,7 @@ app.post('/protected', jwtAuth, (req, res) => {
       .catch(err => res.status(500).json({ message: 'Internal server error' }));
   });
 
+app.post('/items1', randomItem);
 app.post('/items2', randomBuild);
 app.post('/random3', randomGod);
 app.post('/save', saveBuild);
