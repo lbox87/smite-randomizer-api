@@ -14,6 +14,7 @@ const { randomGod } = require('./random-god-router');
 const { randomBuild } = require('./random-item-router');
 const { randomItem } = require('./random-item-router2');
 const { saveBuild } = require('./saved-build-router');
+const { buildUpdate } = require('./save-edit-router');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 const { Build } = require('./saved-build-model');
@@ -95,6 +96,7 @@ app.post('/items1', randomItem);
 app.post('/items2', randomBuild);
 app.post('/random3', randomGod);
 app.post('/save', saveBuild);
+app.put('/edit/:id', buildUpdate);
 
 let server;
 
