@@ -94,6 +94,7 @@ let randomBuild = (req, res) => {
           item5: build.item5,
           item6: build.item6
         });
+        res.status(200)
       })
       .catch(err => {
         console.error(err);

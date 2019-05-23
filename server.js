@@ -34,6 +34,13 @@ app.use(cors({
 app.use('/users/', usersRouter);
 app.use('/auth/', authRouter);
 
+app.get('/', (req, res) => {
+  Build
+    .findOne()
+    .then(build => res.status(200))
+    .catch(err => res.status(500).json({ message: 'Internal server error' }));
+});
+
 app.post('/protected', jwtAuth, (req, res) => {
   console.log(req.body)
   let userNow = req.body.user;

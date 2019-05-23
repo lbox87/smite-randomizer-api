@@ -29,7 +29,7 @@ let randomGod = (req,res) => {
     .find({class: {$in: classes}})
     .then(gods => {
         
-        res.json({
+        res.status(200).json({
             gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
         });
       })
