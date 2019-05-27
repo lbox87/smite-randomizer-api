@@ -30,7 +30,7 @@ let randomGod = (req,res) => {
     .then(gods => {
         
         res.status(200).json({
-            gods: gods[Math.floor(Math.random() * Math.floor(gods.length-1))]
+            gods: gods[Math.floor(Math.random() * Math.floor(gods.length))]
         });
       })
   .catch(err => {
