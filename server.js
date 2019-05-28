@@ -13,10 +13,10 @@ const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { router: randomGod } = require('./gods/random-god-router');
 const { router: randomItems } = require('./items/random-item-router');
 const { saveBuild } = require('./saved-build-router');
-const { buildUpdate } = require('./save-edit-router');
+const { router: builds } = require('./builds-router');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
-const { Build } = require('./saved-build-model');
+const { Build } = require('./builds-model');
 
 app.use(morgan('common'));
 passport.use(localStrategy);
@@ -34,17 +34,10 @@ app.use('/users/', usersRouter);
 app.use('/auth/', authRouter);
 app.use('/random3', randomGod)
 app.use('/items/', randomItems)
-
+app.use('/edit/', builds)
 
 app.post('/save', saveBuild);
-app.put('/edit/:id', buildUpdate);
-
-app.get('/', (req, res) => {
-  Build
-    .findOne()
-    .then(build => res.status(200))
-    .catch(err => res.status(500).json({ message: 'Internal server error' }));
-});
+// app.put('/edit/:id', buildUpdate);
 
 app.post('/protected', jwtAuth, (req, res) => {
   console.log(req.body)

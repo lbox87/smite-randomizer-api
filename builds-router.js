@@ -1,15 +1,14 @@
 const express = require('express');
 const app = express();
+const router = express.Router();
 app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
-const { Build } = require('./saved-build-model');
+const { Build } = require('./builds-model');
 
 const cors = require('cors');
 
@@ -18,7 +17,7 @@ app.use(cors({
     })
 );
 
-let buildUpdate = (req, res) => {
+router.put('/:id', (req, res) => {
   console.log(req.body)
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     const message = (
@@ -43,7 +42,7 @@ let buildUpdate = (req, res) => {
       res.status(204).json(character.serialize());
     })
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
-};
+});
   
 
-  module.exports = { buildUpdate }
+  module.exports = { router }
