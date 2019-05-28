@@ -11,7 +11,7 @@ mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { router: randomGod } = require('./gods/random-god-router');
-const { randomBuild } = require('./random-item-router');
+const { router: randomBuild } = require('./random-item-router');
 const { randomItem } = require('./random-item-router2');
 const { saveBuild } = require('./saved-build-router');
 const { buildUpdate } = require('./save-edit-router');
@@ -34,6 +34,12 @@ app.use(cors({
 app.use('/users/', usersRouter);
 app.use('/auth/', authRouter);
 app.use('/random3', randomGod)
+app.use('/items2', randomBuild)
+
+app.post('/items1', randomItem);
+// app.post('/items2', randomBuild);
+app.post('/save', saveBuild);
+app.put('/edit/:id', buildUpdate);
 
 app.get('/', (req, res) => {
   Build
@@ -100,10 +106,7 @@ app.post('/protected', jwtAuth, (req, res) => {
       .catch(err => res.status(500).json({ message: 'Internal server error' }));
   });
 
-app.post('/items1', randomItem);
-app.post('/items2', randomBuild);
-app.post('/save', saveBuild);
-app.put('/edit/:id', buildUpdate);
+
 
 let server;
 

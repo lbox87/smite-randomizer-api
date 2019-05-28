@@ -8,7 +8,6 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('../config');
-
 const { God } = require('./god-model');
 
 const cors = require('cors');
