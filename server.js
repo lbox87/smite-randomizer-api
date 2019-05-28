@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
-const { randomGod } = require('./random-god-router');
+const { router: randomGod } = require('./random-god-router');
 const { randomBuild } = require('./random-item-router');
 const { randomItem } = require('./random-item-router2');
 const { saveBuild } = require('./saved-build-router');
@@ -33,6 +33,7 @@ app.use(cors({
 
 app.use('/users/', usersRouter);
 app.use('/auth/', authRouter);
+app.use('/random3', randomGod)
 
 app.get('/', (req, res) => {
   Build
@@ -101,7 +102,6 @@ app.post('/protected', jwtAuth, (req, res) => {
 
 app.post('/items1', randomItem);
 app.post('/items2', randomBuild);
-app.post('/random3', randomGod);
 app.post('/save', saveBuild);
 app.put('/edit/:id', buildUpdate);
 
