@@ -17,7 +17,7 @@ app.use(cors({
         origin: CLIENT_ORIGIN
     })
 );
-
+// edit existing build
 router.put('/:id', (req, res) => {
   console.log(req.body)
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
@@ -27,7 +27,6 @@ router.put('/:id', (req, res) => {
     console.error(message);
     return res.status(400).json({ message: message });
   }
-
   const toUpdate = {};
   const updateableFields = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6','image1', 'image2', 'image3', 'image4', 'image5', 'image6'];
 
@@ -36,7 +35,6 @@ router.put('/:id', (req, res) => {
       toUpdate[field] = req.body[field];
     }
   });
-
     Build
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
     .then(character => {
@@ -44,14 +42,14 @@ router.put('/:id', (req, res) => {
     })
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
 });
-
+// delete existing build
 router.delete('/:id', (req, res) => {
   Build
     .findByIdAndRemove(req.params.id)
     .then(build => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
 });
-  
+  // pull all builds for a user
 router.post('/protected', jwtAuth, (req, res) => {
   console.log(req.body)
   let userNow = req.body.user;
@@ -69,7 +67,7 @@ router.post('/protected', jwtAuth, (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
       });
   })
-
+// save a new build
   router.post('/save', (req,res) => {
     Build
       .create({
@@ -100,6 +98,7 @@ router.post('/protected', jwtAuth, (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
       });
     })
+    // lookup specific build
   router.post('/:id', (req, res) => {
     console.log(req.params.id)
     Build
