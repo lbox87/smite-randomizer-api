@@ -52,5 +52,65 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
 });
   
+router.post('/protected', jwtAuth, (req, res) => {
+  console.log(req.body)
+  let userNow = req.body.user;
+    Build
+      .find({user: userNow})
+      .then(builds => {
+        console.log(builds)
+        res.json({
+          data: builds.map(
+            (builds) => builds.serialize())
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+      });
+  })
+
+  router.post('/save', (req,res) => {
+    Build
+      .create({
+        user: req.body.user,
+        god: req.body.god,
+        image: req.body.image,
+        item1: req.body.item1,
+        item2: req.body.item2,
+        item3: req.body.item3,
+        item4: req.body.item4,
+        item5: req.body.item5,
+        item6: req.body.item6,
+        image1: req.body.image1,
+        image2: req.body.image2,
+        image3: req.body.image3,
+        image4: req.body.image4,
+        image5: req.body.image5,
+        image6: req.body.image6
+      })
+      .then(build => {
+        // res.status(201).json(build.serialize());
+        res.status(201).json({
+          message: `Random build for ${req.body.god} has been saved to your profile.`
+        })
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+      });
+    })
+  router.post('/:id', (req, res) => {
+    console.log(req.params.id)
+    Build
+      .findOne({_id: req.params.id})
+      // .then(build => res.status(204).end())
+      .then(build => {
+        res.json({
+          build: build.serialize()
+        });
+      })
+      .catch(err => res.status(500).json({ message: 'Internal server error' }));
+  });
 
 module.exports = { router }

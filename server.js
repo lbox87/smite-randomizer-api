@@ -12,17 +12,13 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { router: randomGod } = require('./gods/random-god-router');
 const { router: randomItems } = require('./items/random-item-router');
-const { saveBuild } = require('./saved-build-router');
 const { router: builds } = require('./builds-router');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
-const { Build } = require('./builds-model');
 
 app.use(morgan('common'));
 passport.use(localStrategy);
 passport.use(jwtStrategy);
-
-const jwtAuth = passport.authenticate('jwt', { session: false });
 
 const cors = require('cors');
 app.use(cors({
@@ -35,61 +31,6 @@ app.use('/auth/', authRouter);
 app.use('/random3', randomGod)
 app.use('/items/', randomItems)
 app.use('/builds/', builds)
-
-app.post('/save', saveBuild);
-
-app.post('/protected', jwtAuth, (req, res) => {
-  console.log(req.body)
-  let userNow = req.body.user;
-    Build
-      .find({user: userNow})
-      .then(builds => {
-        console.log(builds)
-        res.json({
-          data: builds.map(
-            (builds) => builds.serialize())
-        });
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(500).json({ message: 'Internal server error' });
-      });
-  });
-
-  app.post('/edit', jwtAuth, (req, res) => {
-    console.log(req.body)
-    let buildNow = req.body.build;
-      Build
-        .find({_id: buildNow})
-        .then(build => {
-          console.log(build)
-          res.json({
-            data: build.map(
-              (build) => build.serialize())
-          });
-        })
-        .catch(err => {
-          console.error(err);
-          res.status(500).json({ message: 'Internal server error' });
-        });
-    });
-
-  app.post('/find/:id', (req, res) => {
-    console.log(req.params.id)
-    Build
-      .findOne({_id: req.params.id})
-      // .then(build => res.status(204).end())
-      .then(build => {
-        res.json({
-          build: build.serialize()
-        });
-
-      })
-
-      .catch(err => res.status(500).json({ message: 'Internal server error' }));
-  });
-
-
 
 let server;
 
