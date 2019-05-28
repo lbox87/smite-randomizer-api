@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
-const { router: randomGod } = require('./random-god-router');
+const { router: randomGod } = require('./gods/random-god-router');
 const { randomBuild } = require('./random-item-router');
 const { randomItem } = require('./random-item-router2');
 const { saveBuild } = require('./saved-build-router');

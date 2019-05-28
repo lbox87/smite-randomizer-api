@@ -9,7 +9,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
-const { God } = require('./god-model');
+// const { God } = require('./gods/god-model');
 const { Item } = require('./item-model');
 const { Build } = require('./saved-build-model');
 
