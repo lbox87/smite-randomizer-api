@@ -11,7 +11,7 @@ mongoose.Promise = global.Promise;
 
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { router: randomGod } = require('./gods/random-god-router');
-const { router: randomItems } = require('./random-item-router');
+const { router: randomItems } = require('./items/random-item-router');
 const { saveBuild } = require('./saved-build-router');
 const { buildUpdate } = require('./save-edit-router');
 const { router: usersRouter } = require('./users');
