@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
+const passport = require('passport');
 app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
@@ -9,7 +10,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { Build } = require('./builds-model');
-
+const jwtAuth = passport.authenticate('jwt', { session: false });
 const cors = require('cors');
 
 app.use(cors({
@@ -41,6 +42,13 @@ router.put('/:id', (req, res) => {
     .then(character => {
       res.status(204).json(character.serialize());
     })
+    .catch(err => res.status(500).json({ message: 'Internal server error' }));
+});
+
+router.delete('/:id', (req, res) => {
+  Build
+    .findByIdAndRemove(req.params.id)
+    .then(build => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
 });
   

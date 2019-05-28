@@ -34,10 +34,9 @@ app.use('/users/', usersRouter);
 app.use('/auth/', authRouter);
 app.use('/random3', randomGod)
 app.use('/items/', randomItems)
-app.use('/edit/', builds)
+app.use('/builds/', builds)
 
 app.post('/save', saveBuild);
-// app.put('/edit/:id', buildUpdate);
 
 app.post('/protected', jwtAuth, (req, res) => {
   console.log(req.body)
@@ -74,13 +73,6 @@ app.post('/protected', jwtAuth, (req, res) => {
           res.status(500).json({ message: 'Internal server error' });
         });
     });
-
-  app.delete('/delete/:id', (req, res) => {
-    Build
-      .findByIdAndRemove(req.params.id)
-      .then(build => res.status(204).end())
-      .catch(err => res.status(500).json({ message: 'Internal server error' }));
-  });
 
   app.post('/find/:id', (req, res) => {
     console.log(req.params.id)

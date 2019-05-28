@@ -19,15 +19,6 @@ app.use(cors({
 );
 
 let saveBuild = (req,res) => {
-  // const requiredFields = ['user', 'god', 'item1', 'item2','item3','item4','item5','item6'];
-  // for (let i = 0; i < requiredFields.length; i++) {
-  //   const field = requiredFields[i];
-  //   if (!(field in req.body)) {
-  //     const message = `Missing \`${field}\` in request body`;
-  //     console.error(message);
-  //     return res.status(400).send(message);
-  //   }
-  // }
   Build
     .create({
       user: req.body.user,
