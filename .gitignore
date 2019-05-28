@@ -19,6 +19,7 @@
 .env.production.local
 state-example.js
 .env
+other-requests-to-sort.js
 
 npm-debug.log*
 yarn-debug.log*
