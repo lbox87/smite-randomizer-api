@@ -12,7 +12,7 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const { router: randomGod } = require('./gods/random-god-router');
 const { router: randomItems } = require('./items/random-item-router');
-const { router: builds } = require('./builds-router');
+const { router: builds } = require('./builds/builds-router');
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
