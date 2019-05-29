@@ -1,10 +1,7 @@
 'use strict';
-
 const mongoose = require('mongoose');
-const { PORT, DATABASE_URL } = require('../config');
+const { DATABASE_URL } = require('../config');
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
 require('dotenv').config();
 
 const savedBuildSchema = mongoose.Schema({
@@ -43,8 +40,6 @@ savedBuildSchema.methods.serialize = function () {
     image4: this.image4,
     image5: this.image5,
     image6: this.image6
-    // itemsAvailable: this.itemsAvailable,
-    // image: this.image,
   };
 };
 

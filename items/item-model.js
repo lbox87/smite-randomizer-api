@@ -1,17 +1,14 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const { PORT, DATABASE_URL } = require('../config');
+const { DATABASE_URL } = require('../config');
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
 require('dotenv').config();
 
 const itemSchema = mongoose.Schema({
   group: { type: String, required: true },
   classification: { type: String, required: true },
   name: { type: String, required: true },
-//   image: { type: String, required: true },
 });
 
 itemSchema.methods.serialize = function () {
@@ -20,7 +17,6 @@ itemSchema.methods.serialize = function () {
     group: this.group,
     classification: this.classification,
     name: this.name,
-    // image: this.image,
   };
 };
 

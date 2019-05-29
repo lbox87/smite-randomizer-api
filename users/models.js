@@ -1,7 +1,8 @@
 'use strict';
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
-
+const { DATABASE_URL } = require('../config');
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 const UserSchema = mongoose.Schema({

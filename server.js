@@ -3,13 +3,14 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
-
+const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
 const morgan = require('morgan');
 const passport = require('passport');
 const mongoose = require('mongoose');
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
-const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('./config');
+
 const { router: randomGod } = require('./gods/random-god-router');
 const { router: randomItems } = require('./items/random-item-router');
 const { router: builds } = require('./builds/builds-router');

@@ -5,9 +5,7 @@ app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
 
-const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('../config');
+const { CLIENT_ORIGIN } = require('../config');
 const { God } = require('./god-model');
 
 const cors = require('cors');
@@ -24,11 +22,9 @@ router.post('/', (req,res) => {
         classes.push(key).toString()
       }
     }
-    console.log(classes);
     God    
     .find({class: {$in: classes}})
     .then(gods => {
-        
         res.status(200).json({
             gods: gods[Math.floor(Math.random() * Math.floor(gods.length))]
         });

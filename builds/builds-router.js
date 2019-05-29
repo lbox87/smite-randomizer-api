@@ -6,9 +6,7 @@ app.use(express.json());
 app.use(express.static('public'));
 require('dotenv').config();
 
-const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-const { PORT, DATABASE_URL, CLIENT_ORIGIN } = require('../config');
+const { CLIENT_ORIGIN } = require('../config');
 const { Build } = require('./builds-model');
 const jwtAuth = passport.authenticate('jwt', { session: false });
 const cors = require('cors');
@@ -17,10 +15,11 @@ app.use(cors({
         origin: CLIENT_ORIGIN
     })
 );
+
 // edit existing build
 router.put('/:id', (req, res) => {
-  console.log(req.body)
-  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
+  // make sure request is made appropriately to the right URL matching the request body
+  if (!(req.params.id === req.body.id)) {
     const message = (
       `Request path id (${req.params.id}) and request body id ` +
       `(${req.body.id}) must match`);
@@ -29,7 +28,7 @@ router.put('/:id', (req, res) => {
   }
   const toUpdate = {};
   const updateableFields = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6','image1', 'image2', 'image3', 'image4', 'image5', 'image6'];
-
+// for each field in the request body that matches updatedable fields, update that field
   updateableFields.forEach(field => {
     if (field in req.body) {
       toUpdate[field] = req.body[field];
@@ -42,6 +41,7 @@ router.put('/:id', (req, res) => {
     })
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
 });
+
 // delete existing build
 router.delete('/:id', (req, res) => {
   Build
@@ -49,14 +49,13 @@ router.delete('/:id', (req, res) => {
     .then(build => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
 });
-  // pull all builds for a user
+
+// pull all builds for a user
 router.post('/protected', jwtAuth, (req, res) => {
-  console.log(req.body)
   let userNow = req.body.user;
     Build
       .find({user: userNow})
       .then(builds => {
-        console.log(builds)
         res.json({
           data: builds.map(
             (builds) => builds.serialize())
@@ -67,6 +66,7 @@ router.post('/protected', jwtAuth, (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
       });
   })
+
 // save a new build
   router.post('/save', (req,res) => {
     Build
@@ -88,7 +88,6 @@ router.post('/protected', jwtAuth, (req, res) => {
         image6: req.body.image6
       })
       .then(build => {
-        // res.status(201).json(build.serialize());
         res.status(201).json({
           message: `Random build for ${req.body.god} has been saved to your profile.`
         })
@@ -98,12 +97,11 @@ router.post('/protected', jwtAuth, (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
       });
     })
-    // lookup specific build
-  router.post('/:id', (req, res) => {
-    console.log(req.params.id)
+
+// lookup specific build
+router.post('/:id', (req, res) => {
     Build
       .findOne({_id: req.params.id})
-      // .then(build => res.status(204).end())
       .then(build => {
         res.json({
           build: build.serialize()
